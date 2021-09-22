@@ -5,7 +5,7 @@ namespace Bankly.MassTransit.Basics.Contracts.Commands
     {
         Guid CorrelationId { get; }
         string Sender { get; }
-        string Payer { get; }
+        string Receiver { get; }
         double Amount { get; }
         double TaxAmount { get; }
 

@@ -7,7 +7,7 @@ namespace Bankly.MassTransitBasics.Contracts.Domain
     {
         public Guid CorrelationId { get; set; }
         public string sender { get; set; }
-        public string Payer { get; set; }
+        public string Receiver { get; set; }
         public double Amount { get; set; }
         public double TaxAmount { get; set; }
         public Half TaxMultiplyer { get; set; }
