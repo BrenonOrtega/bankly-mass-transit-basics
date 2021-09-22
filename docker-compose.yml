@@ -1,5 +1,4 @@
-version: 3.9
-container-name: bankly-masstransit-basics
+version: "3.9"
 services:
   rabbit-mq:
     image: "bitnami/rabbitmq:latest"
@@ -12,16 +11,21 @@ services:
       - RABBITMQ_USERNAME=admin
       - RABBITMQ_PASSWORD=admin
       - RABBITMQ_PLUGINS=rabbitmq_management
+      - RABBITMQ_VHOST=bankly-demo-app
     deploy:
       resources:
           limits:
-              memory: 450M
+              memory: 200M
   
   redis:
     image: redis
     command: redis-server --requirepass Redis2019!
     ports:
       - "6379:6379"
+    deploy:
+      resources:
+        limits:
+            memory: 500M
 
 networks:
     bankly-demo-network:
