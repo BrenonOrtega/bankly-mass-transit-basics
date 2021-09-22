@@ -8,8 +8,8 @@ namespace Bankly.MassTransitBasics.Api.Profiles
     {
         public ApiProfile()
         {
+            CreateMap<TransferCreateDto, CreateTransferCommand>();
             CreateMap<CreateTransferCommand, TransferCreateDto>();
-
             CreateMap<TransferCreateDto, TransferResponseDto>();
         }
     }

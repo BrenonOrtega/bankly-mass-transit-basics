@@ -8,17 +8,19 @@
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="MassTransit" Version="7.2.2" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.2.2" />
     <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.2.2" />
     <PackageReference Include="MassTransit.RabbitMq" Version="7.2.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bankly.MassTransitBasics.Infra\Bankly.MassTransitBasics.Infra.csproj" />
     <ProjectReference Include="..\Bankly.MassTransitBasics.Contracts\Bankly.MassTransitBasics.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\Bankly.MassTransitBasics.Contracts\queueSettings.json">
+    <None Include="..\Bankly.MassTransitBasics.Infra\queueSettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>  
   </ItemGroup>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Bankly.MassTransitBasics.Api.Commands;
 using Bankly.MassTransitBasics.Api.Dtos;
+using Bankly.MassTransitBasics.Infra;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -18,14 +19,16 @@ namespace Bankly.MassTransitBasics.Api.Controllers
     {
 
         private readonly ILogger<TransferController> _logger;
-        private readonly IPublishEndpoint _endpoint;
+        private readonly ISendEndpoint _endpoint;
         private readonly IMapper _mapper;
+        private readonly IRepository<CreateTransferCommand> _repo;
 
-        public TransferController(ILogger<TransferController> logger, IPublishEndpoint endpoint, IMapper mapper)
+        public TransferController(ILogger<TransferController> logger, ISendEndpoint endpoint, IMapper mapper, IRepository<CreateTransferCommand> repo)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _endpoint = endpoint ?? throw new ArgumentNullException(nameof(endpoint));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _repo = repo ?? throw new ArgumentNullException(nameof(repo));
         }
 
         [HttpGet]
@@ -51,7 +54,12 @@ namespace Bankly.MassTransitBasics.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Post([FromBody] TransferCreateDto transfer)
         {
-            await _endpoint.Publish(_mapper.Map<CreateTransferCommand>(transfer));
+            var command = _mapper.Map<CreateTransferCommand>(transfer);
+            
+            await Task.WhenAll(
+                _endpoint.Send(command),
+                _repo.AddAsync(command.CorrelationId, command)
+            );
 
             return Ok(_mapper.Map<TransferResponseDto>(transfer));
         }
