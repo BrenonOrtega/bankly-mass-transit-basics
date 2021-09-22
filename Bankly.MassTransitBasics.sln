@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankly.MassTransitBasics.Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankly.MassTransitBasics.Infra", "Bankly.MassTransitBasics.Infra\Bankly.MassTransitBasics.Infra.csproj", "{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankly.MassTransitBasics.TaxApplier", "Bankly.MassTransitBasics.TaxApplier\Bankly.MassTransitBasics.TaxApplier.csproj", "{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,5 +73,17 @@ Global
 		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|x64.Build.0 = Release|Any CPU
 		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|x86.ActiveCfg = Release|Any CPU
 		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|x86.Build.0 = Release|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Debug|x64.Build.0 = Debug|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Debug|x86.Build.0 = Debug|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Release|x64.ActiveCfg = Release|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Release|x64.Build.0 = Release|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Release|x86.ActiveCfg = Release|Any CPU
+		{CB64250A-27A3-489C-B9AF-1D83B0C45F4C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

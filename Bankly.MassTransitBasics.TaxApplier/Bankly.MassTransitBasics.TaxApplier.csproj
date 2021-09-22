@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-Bankly.MassTransitBasics.TaxApplier-17025999-2295-4457-8C22-6B342DE082F6</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="MassTransit" Version="7.2.2" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.2.2" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.2.2" />
+    <PackageReference Include="MassTransit.RabbitMq" Version="7.2.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bankly.MassTransitBasics.Contracts\Bankly.MassTransitBasics.Contracts.csproj" />
+    <ProjectReference Include="..\Bankly.MassTransitBasics.Infra\Bankly.MassTransitBasics.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Bankly.MassTransitBasics.Infra\queueSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>  
+  </ItemGroup>
+</Project>
