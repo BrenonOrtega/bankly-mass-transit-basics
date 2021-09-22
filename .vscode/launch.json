@@ -5,7 +5,7 @@
             "name": "Launch API",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build API",
             "program": "${workspaceFolder}/Bankly.MassTransitBasics.Api/bin/Debug/net5.0/Bankly.MassTransitBasics.Api.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Bankly.MassTransitBasics.Api",
@@ -25,7 +25,7 @@
             "name": "Launch TransferCreator",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build transfercreator",
+            "preLaunchTask": "build TransferCreator",
             "program": "${workspaceFolder}/Bankly.MassTransitBasics.TransferCreator/bin/Debug/net5.0/Bankly.MassTransitBasics.TransferCreator.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Bankly.MassTransitBasics.TransferCreator",
@@ -35,13 +35,13 @@
             }
         },
         {
-            "name": "Launch Tax Applyer",
+            "name": "Launch Tax Applier",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build Tax Applyer",
-            "program": "${workspaceFolder}/Bankly.MassTransitBasics.TransferCreator/bin/Debug/net5.0/Bankly.MassTransitBasics.TransferCreator.dll",
+            "preLaunchTask": "build TaxApplier",
+            "program": "${workspaceFolder}/Bankly.MassTransitBasics.TaxApplier/bin/Debug/net5.0/Bankly.MassTransitBasics.TaxApplier.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Bankly.MassTransitBasics.TransferCreator",
+            "cwd": "${workspaceFolder}/Bankly.MassTransitBasics.TaxApplier",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"

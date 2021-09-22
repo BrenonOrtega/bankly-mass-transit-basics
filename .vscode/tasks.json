@@ -26,7 +26,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build TaxApplyer",
+            "label": "build TaxApplier",
             "command": "dotnet",
             "type": "process",
             "args": [
