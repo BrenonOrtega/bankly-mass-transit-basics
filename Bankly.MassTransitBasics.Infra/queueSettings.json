@@ -1,0 +1,9 @@
+{
+  "RabbitMq": {
+    "Username": "admin",
+    "Password": "admin",
+    "Vhost": "bankly-demo-app",
+    "Port": 5672,
+    "Hostname": "rabbitmq://localhost/bankly-demo-app"
+  }
+}
