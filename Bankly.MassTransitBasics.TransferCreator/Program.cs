@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Bankly.MassTransitBasics.Infra;
+using MassTransit;
 
 namespace Bankly.MassTransitBasics.TransferCreator
 {
@@ -18,13 +19,13 @@ namespace Bankly.MassTransitBasics.TransferCreator
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureHostConfiguration(cfgBuilder => cfgBuilder.AddJsonFile("queueSettings.json", optional:false, reloadOnChange: true))
+                .ConfigureHostConfiguration(builder => builder.AddQueueSettings())
                 .ConfigureServices((hostContext, services) =>
                 {
                     var config = hostContext.Configuration;
                     services.AddRedisRepository(config);
                     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-                    services.Add<Worker>();
+                    services.AddMassTransitWithRabbitMq(config, useHostedServices: true);
                 });
     }
 }
