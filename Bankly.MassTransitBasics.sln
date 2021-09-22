@@ -1,11 +1,14 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankly.MassTransitBasics.Contracts", "Bankly.MassTransit.Basics.Contracts\Bankly.MassTransitBasics.Contracts.csproj", "{D0FB0C04-A671-41A9-8F89-3E7E3C2A004C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankly.MassTransitBasics.Contracts", "Bankly.MassTransitBasics.Contracts\Bankly.MassTransitBasics.Contracts.csproj", "{D0FB0C04-A671-41A9-8F89-3E7E3C2A004C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankly.MassTransitBasics.Api", "Bankly.MassTransitBasics.Api\Bankly.MassTransitBasics.Api.csproj", "{2809BEBC-9BCA-4F30-82FD-C6B96D5F55DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankly.MassTransitBasics.TransferCreator", "Bankly.MassTransitBasics.TransferCreator\Bankly.MassTransitBasics.TransferCreator.csproj", "{D2713559-0364-4C03-AC20-94A9C70F0996}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bankly.MassTransitBasics.Infra", "Bankly.MassTransitBasics.Infra\Bankly.MassTransitBasics.Infra.csproj", "{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,5 +47,29 @@ Global
 		{2809BEBC-9BCA-4F30-82FD-C6B96D5F55DA}.Release|x64.Build.0 = Release|Any CPU
 		{2809BEBC-9BCA-4F30-82FD-C6B96D5F55DA}.Release|x86.ActiveCfg = Release|Any CPU
 		{2809BEBC-9BCA-4F30-82FD-C6B96D5F55DA}.Release|x86.Build.0 = Release|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Debug|x64.Build.0 = Debug|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Debug|x86.Build.0 = Debug|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Release|x64.ActiveCfg = Release|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Release|x64.Build.0 = Release|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Release|x86.ActiveCfg = Release|Any CPU
+		{D2713559-0364-4C03-AC20-94A9C70F0996}.Release|x86.Build.0 = Release|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Debug|x86.Build.0 = Debug|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|x64.Build.0 = Release|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{10F9EFF1-A013-41B0-8EDC-7AF519CBF8F7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

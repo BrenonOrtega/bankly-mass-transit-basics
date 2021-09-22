@@ -1,8 +1,0 @@
-{
-  "RabbitMq": {
-    "username": "admin",
-    "password": "admin",
-    "vhost": "Bankly",
-    "port": 5672
-  }
-}

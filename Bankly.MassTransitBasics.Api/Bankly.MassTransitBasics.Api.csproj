@@ -14,7 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bankly.MassTransit.Basics.Contracts\Bankly.MassTransitBasics.Contracts.csproj" />
+    <ProjectReference Include="..\Bankly.MassTransitBasics.Contracts\Bankly.MassTransitBasics.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Bankly.MassTransitBasics.Contracts\queueSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>  
   </ItemGroup>
 
 </Project>

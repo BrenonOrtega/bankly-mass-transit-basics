@@ -18,6 +18,10 @@ namespace Bankly.MassTransitBasics.Api
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureHostConfiguration(cfgBuilder => 
+                {
+                    cfgBuilder.AddJsonFile("queurSettings.json", optional: false, reloadOnChange: true);
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

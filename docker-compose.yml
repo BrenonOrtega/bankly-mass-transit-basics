@@ -3,7 +3,6 @@ container-name: bankly-masstransit-basics
 services:
   rabbit-mq:
     image: "bitnami/rabbitmq:latest"
-    container_name: 'rabbitmq'
     networks:
     - bankly-demo-network
     ports:
@@ -17,6 +16,12 @@ services:
       resources:
           limits:
               memory: 450M
+  
+  redis:
+    image: redis
+    command: redis-server --requirepass Redis2019!
+    ports:
+      - "6379:6379"
 
 networks:
     bankly-demo-network:
