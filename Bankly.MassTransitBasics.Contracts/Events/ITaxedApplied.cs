@@ -2,11 +2,11 @@ using System;
 
 namespace Bankly.MassTransitBasics.Contracts.Events
 {
-    public interface ITaxedApply
+    public interface ITaxedApplied
     {
         Guid CorrelationId { get; set; }
         double Amount { get; set; }
-        Half Multiplyer { get; set; }
+        double Multiplyer { get; set; }
         double TaxValue { get; set; }
     }
 }

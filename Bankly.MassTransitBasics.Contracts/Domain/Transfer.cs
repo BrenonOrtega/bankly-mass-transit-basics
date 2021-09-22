@@ -10,7 +10,7 @@ namespace Bankly.MassTransitBasics.Contracts.Domain
         public string Receiver { get; set; }
         public double Amount { get; set; }
         public double TaxAmount { get; set; }
-        public Half TaxMultiplyer { get; set; }
+        public double TaxMultiplyer { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public TransferStatus Status { get; set; }
