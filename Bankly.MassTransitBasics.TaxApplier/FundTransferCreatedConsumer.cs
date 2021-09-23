@@ -33,7 +33,7 @@ namespace Bankly.MassTransitBasics.TaxApplier
 
             return Task.WhenAll(_repo.AddAsync(
                 taxedTransfer.CorrelationId, taxedTransfer),
-                context.Publish(taxedTransfer));
+                context.Publish<ITaxApplied>(taxedTransfer));
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Bankly.MassTransitBasics.Api
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddRedisRepository(Configuration);
-            services.AddMassTransitWithRabbitMq(Configuration, assemblies, false);
+            services.AddMassTransitWithRabbitMq(Configuration, assemblies, useHostedServices:false);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
