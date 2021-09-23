@@ -34,7 +34,7 @@ namespace Bankly.MassTransitBasics.Infra
             {
                 x.SetKebabCaseEndpointNameFormatter();
                 x.AddConsumers(assemblies);
-                
+
                 x.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.Host(config["RabbitMq:Hostname"], host =>

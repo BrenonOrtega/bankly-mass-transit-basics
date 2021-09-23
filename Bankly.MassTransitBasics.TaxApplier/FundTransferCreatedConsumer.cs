@@ -17,7 +17,6 @@ namespace Bankly.MassTransitBasics.TaxApplier
 
         public FundTransferCreatedConsumer(ILogger<FundTransferCreatedConsumer> logger, IRepository<TaxedTransfer> repo, IMapper mapper)
         {
-
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _repo = repo ?? throw new ArgumentNullException(nameof(repo));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper)); ;
@@ -31,9 +30,10 @@ namespace Bankly.MassTransitBasics.TaxApplier
 
             taxedTransfer.Apply();
 
-            return Task.WhenAll(_repo.AddAsync(
-                taxedTransfer.CorrelationId, taxedTransfer),
-                context.Publish<ITaxApplied>(taxedTransfer));
+            return Task.WhenAll(
+                _repo.AddAsync(taxedTransfer.CorrelationId, taxedTransfer),
+                context.Publish<ITaxApplied>(taxedTransfer)
+            );
         }
     }
 }
