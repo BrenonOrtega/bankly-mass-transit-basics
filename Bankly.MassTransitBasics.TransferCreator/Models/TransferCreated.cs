@@ -3,7 +3,7 @@ using Bankly.MassTransitBasics.Contracts.Events;
 
 namespace Bankly.MassTransitBasics.TransferCreator.Models
 {
-    internal class TransferCreated : ITransferCreated
+    public class TransferCreated : ITransferCreated
     {
         public Guid CorrelationId { get; set; }
         public string Sender { get; set; }

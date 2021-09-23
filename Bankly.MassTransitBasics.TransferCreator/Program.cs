@@ -22,10 +22,11 @@ namespace Bankly.MassTransitBasics.TransferCreator
                 .ConfigureHostConfiguration(builder => builder.AddQueueSettings())
                 .ConfigureServices((hostContext, services) =>
                 {
+                    var assemblies = AppDomain.CurrentDomain.GetAssemblies();
                     var config = hostContext.Configuration;
                     services.AddRedisRepository(config);
                     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-                    services.AddMassTransitWithRabbitMq(config, useHostedServices: true);
+                    services.AddMassTransitWithRabbitMq(config, assemblies, useHostedServices: true);
                 });
     }
 }
