@@ -28,9 +28,10 @@ namespace Bankly.MassTransitBasics.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddRedisRepository(Configuration);
-            services.AddMassTransitWithRabbitMq(Configuration, false);
+            services.AddMassTransitWithRabbitMq(Configuration, assemblies, false);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -60,8 +61,6 @@ namespace Bankly.MassTransitBasics.Api
                 endpoints.MapControllers();
             });
         }
-
-        
 
     }
 }

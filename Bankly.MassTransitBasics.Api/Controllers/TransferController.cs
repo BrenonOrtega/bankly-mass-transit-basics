@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Bankly.MassTransitBasics.Api.Commands;
 using Bankly.MassTransitBasics.Api.Dtos;
+using Bankly.MassTransitBasics.Contracts.Commands;
 using Bankly.MassTransitBasics.Infra;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,11 @@ namespace Bankly.MassTransitBasics.Api.Controllers
     {
 
         private readonly ILogger<TransferController> _logger;
-        private readonly ISendEndpoint _endpoint;
+        private readonly IPublishEndpoint _endpoint;
         private readonly IMapper _mapper;
         private readonly IRepository<CreateTransferCommand> _repo;
 
-        public TransferController(ILogger<TransferController> logger, ISendEndpoint endpoint, IMapper mapper, IRepository<CreateTransferCommand> repo)
+        public TransferController(ILogger<TransferController> logger, IPublishEndpoint endpoint, IMapper mapper, IRepository<CreateTransferCommand> repo)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _endpoint = endpoint ?? throw new ArgumentNullException(nameof(endpoint));
@@ -57,7 +58,7 @@ namespace Bankly.MassTransitBasics.Api.Controllers
             var command = _mapper.Map<CreateTransferCommand>(transfer);
             
             await Task.WhenAll(
-                _endpoint.Send(command),
+                _endpoint.Publish<ICreateTransferCommand>(command),
                 _repo.AddAsync(command.CorrelationId, command)
             );
 
