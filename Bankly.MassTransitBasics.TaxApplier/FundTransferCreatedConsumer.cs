@@ -1,43 +1,39 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MassTransit;
-using Bankly.MassTransitBasics.Contracts.Commands;
-using Bankly.MassTransitBasics.Infra;
-using Bankly.MassTransitBasics.TaxApplier.Models;
 using AutoMapper;
 using Bankly.MassTransitBasics.Contracts.Events;
+using Bankly.MassTransitBasics.Infra;
+using Bankly.MassTransitBasics.TaxApplier.Models;
+using MassTransit;
+using Microsoft.Extensions.Logging;
 
 namespace Bankly.MassTransitBasics.TaxApplier
 {
-    public class Worker : IConsumer<IApplyTaxCommand>
+    public class FundTransferCreatedConsumer : IConsumer<ITransferCreated>
     {
-        private readonly ILogger<Worker> _logger;
-        private readonly IRepository<ITaxedApplied> _repo;
+        private readonly ILogger<FundTransferCreatedConsumer> _logger;
+        private readonly IRepository<TaxedTransfer> _repo;
         private readonly IMapper _mapper;
 
-        public Worker(ILogger<Worker> logger, IRepository<ITaxedApplied> repo, IMapper mapper)
+        public FundTransferCreatedConsumer(ILogger<FundTransferCreatedConsumer> logger, IRepository<TaxedTransfer> repo, IMapper mapper)
         {
 
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _repo = repo ?? throw new ArgumentNullException(nameof(repo));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper)); ;
         }
 
-        public Task Consume(ConsumeContext<IApplyTaxCommand> context)
+        public Task Consume(ConsumeContext<ITransferCreated> context)
         {
             _logger.LogInformation("Consuming message {0}", context.Message);
             var taxCommand = context.Message;
             var taxedTransfer = _mapper.Map<TaxedTransfer>(taxCommand);
 
+            taxedTransfer.Apply();
+
             return Task.WhenAll(_repo.AddAsync(
                 taxedTransfer.CorrelationId, taxedTransfer),
                 context.Publish(taxedTransfer));
         }
-
     }
 }
