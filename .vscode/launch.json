@@ -46,6 +46,19 @@
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
+        },
+        {
+            "name": "Launch Operational Transfer",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build OperationalTransfer",
+            "program": "${workspaceFolder}/Bankly.MassTransitBasics.OperationalTransfer/bin/Debug/net5.0/Bankly.MassTransitBasics.OperationalTransfer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Bankly.MassTransitBasics.OperationalTransfer",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
         }
 
     ]
